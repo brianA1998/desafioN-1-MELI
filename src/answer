@@ -1,0 +1,2 @@
+¿Por qué se define vehicles como un Set ?
+We use Set because we can't accept duplicated vehicles, and Set has the property that doesn't allow duplicated items.

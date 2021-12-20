@@ -1,4 +1,4 @@
-data class Vehicle(val plate : String){
+data class Vehicle(val plate : String, val type : VehicleType){
 
     //Function states that two Vehicles are equal if their plates are equal
     override fun equals(other : Any?) : Boolean{
