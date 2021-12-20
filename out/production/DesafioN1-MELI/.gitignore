@@ -1,0 +1,5 @@
+build/
+/shelf/
+/workspace.xml
+.DS_Store
+.idea
