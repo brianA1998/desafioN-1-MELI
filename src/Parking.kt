@@ -1,9 +1,11 @@
 data class Parking(val vehicles : MutableSet<Vehicle>){
 
     //Verified capabilities the Parking
-    fun addVehicle(vehicle : Vehicle) {
+    fun addVehicle(vehicles: MutableSet<Vehicle>) {
         if(vehicles.size <= 20){
-            checkIn(true)
+            vehicles.forEach {
+                checkIn(true)
+            }
         }else{
             checkIn(false)
         }
