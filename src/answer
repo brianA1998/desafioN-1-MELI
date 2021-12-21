@@ -6,3 +6,4 @@ They must be added in Vehicle because checkInTime and discountCard belongs to ea
 
 ¿Cómo indicamos que un tipo de datos puede adquirir esta característica en Kotlin?
 Adding a question mark next to the data type.
+
