@@ -34,27 +34,8 @@ fun main(){
     println(parking.vehicles.contains(minibus))
     println(parking.vehicles.contains(bus))
     parking.addVehicle(parking.vehicles)
-    /*parking.addVehicle(bus)
-    parking.addVehicle(car)
-    parking.addVehicle(moto)
-    parking.addVehicle(minibus)
-    parking.addVehicle(carRed)
-    parking.addVehicle(motoBlue)
-    parking.addVehicle(minibusYellow)
-    parking.addVehicle(busGreen)
-    parking.addVehicle(carBlack)
-    parking.addVehicle(motoGreen)
-    parking.addVehicle(minibusRed)
-    parking.addVehicle(busBlue)
-    parking.addVehicle(carGrey)
-    parking.addVehicle(motoRed)
-    parking.addVehicle(minibusGreen)
-    parking.addVehicle(busBlack)
-    parking.addVehicle(carViolet)
-    parking.addVehicle(motoYellow)
-    parking.addVehicle(minibusBlue)
-    parking.addVehicle(busRed)*/
 
+    parking.vehicles.remove(car)
 
     // Checking that a duplicated car can't be added
     val car2 = Vehicle("AA111AA",VehicleType.CAR, Calendar.getInstance(),"DISCOUNT_CARD_001")
