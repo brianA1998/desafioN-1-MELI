@@ -42,5 +42,8 @@ fun main(){
     val isCar2Inserted = parking.vehicles.add(car2)
     println(isCar2Inserted)
 
+    val parkingSpace = ParkingSpace(busRed)
+    parkingSpace.checkOutVehicle(busRed.plate)
+
 
 }

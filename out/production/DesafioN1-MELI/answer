@@ -2,7 +2,8 @@
 We use Set because we can't accept duplicated vehicles, and Set has the property that doesn't allow duplicated items.
 
 ¿Donde deben agregarse las propiedades, en ParkingSpace, Vehicle  o en ambos?
-They must be added in ParkingSpace because it is in charge of managing rates and times.
+They must be added in Vehicle because checkInTime and discountCard belongs to each car.
 
 ¿Cómo indicamos que un tipo de datos puede adquirir esta característica en Kotlin?
 Adding a question mark next to the data type.
+
