@@ -38,12 +38,14 @@ fun main(){
     parking.vehicles.remove(car)
 
     // Checking that a duplicated car can't be added
-    val car2 = Vehicle("AA111AA",VehicleType.CAR, Calendar.getInstance(),"DISCOUNT_CARD_001")
-    val isCar2Inserted = parking.vehicles.add(car2)
-    println(isCar2Inserted)
+    //val car2 = Vehicle("AA111AA",VehicleType.CAR, Calendar.getInstance(),"DISCOUNT_CARD_001")
+    //val isCar2Inserted = parking.vehicles.add(car2)
+    //println(isCar2Inserted)
 
-    val parkingSpace = ParkingSpace(busRed)
+    val parkingSpace = ParkingSpace(busRed,parking)
     parkingSpace.checkOutVehicle(busRed.plate)
+
+    println("\n ${parking.vehicles}")
 
 
 }

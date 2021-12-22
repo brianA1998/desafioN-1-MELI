@@ -1,4 +1,5 @@
-data class Parking(val vehicles : MutableSet<Vehicle>){
+class Parking(val vehicles : MutableSet<Vehicle>){
+
 
     //Verified capabilities the Parking
     fun addVehicle(vehicles: MutableSet<Vehicle>) {
