@@ -49,6 +49,7 @@ class ParkingSpace(var vehicle : Vehicle,var parking: Parking){
             totalAmount = (vehicleType.rate*2) + extraAmount.toInt()
         }
 
+        //Verified if discount is null and apply discount if is not null to totalAmount
         vehicle.discountCard?.let{
             totalAmount = (totalAmount - totalAmount*0.15).toInt()} ?:
         run{totalAmount = totalAmount}

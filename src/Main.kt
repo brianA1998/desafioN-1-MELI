@@ -4,6 +4,8 @@
 import java.util.*
 
 fun main(){
+
+    //Objects Vehicles test
     val car = Vehicle("AA111AA",VehicleType.CAR, Calendar.getInstance(),"DISCOUNT_CARD_001")
     val moto = Vehicle("B222BBB",VehicleType.MOTORCYCLE, Calendar.getInstance())
     val minibus = Vehicle("CC333CC",VehicleType.MINIBUS,Calendar.getInstance())
@@ -24,35 +26,37 @@ fun main(){
     val motoYellow = Vehicle("AD000AD",VehicleType.MOTORCYCLE, Calendar.getInstance())
     val minibusBlue = Vehicle("EE444EE",VehicleType.MINIBUS,Calendar.getInstance())
     val busRed = Vehicle("DD111DD",VehicleType.BUS, Calendar.getInstance(),"DISCOUNT_CARD_009")
-    //val busPurple = Vehicle("EE999EE",VehicleType.BUS, Calendar.getInstance())
+    //val busPurple = Vehicle("EE999EE",VehicleType.BUS, Calendar.getInstance()) -> Vehicle twenty-one error
 
-    val mutableSetA = mutableSetOf<Vehicle>( car, moto , minibus , bus);
+    //Aggregations Vehicles in mutableSet Parking
     val parking = Parking(mutableSetOf(car,moto,minibus,bus,carRed,motoBlue,minibusYellow,busGreen,carBlack,motoGreen,
         minibusRed,busBlue,carGrey,motoRed,minibusGreen,busBlack,carViolet,motoYellow,minibusBlue,busRed))
-    println(parking.vehicles.contains(car))
-    println(parking.vehicles.contains(moto))
-    println(parking.vehicles.contains(minibus))
-    println(parking.vehicles.contains(bus))
-    parking.addVehicle(parking.vehicles)
 
-    parking.vehicles.remove(car)
+    //println(parking.vehicles.contains(car)) -> true contain in mutableSet
+    //println(parking.vehicles.contains(moto))
+    //println(parking.vehicles.contains(minibus))
+    //println(parking.vehicles.contains(bus))
+
+
+    //parking.addVehicle(parking.vehicles)
+
 
     // Checking that a duplicated car can't be added
     //val car2 = Vehicle("AA111AA",VehicleType.CAR, Calendar.getInstance(),"DISCOUNT_CARD_001")
     //val isCar2Inserted = parking.vehicles.add(car2)
     //println(isCar2Inserted)
 
-    var parkingSpace = ParkingSpace(busRed,parking)
-    parkingSpace.checkOutVehicle(busRed.plate)
+    //Remove the car and pay
+    //var parkingSpace = ParkingSpace(busRed,parking)
+    //parkingSpace.checkOutVehicle(busRed.plate)
+    //parkingSpace = ParkingSpace(minibusBlue,parking)
+    //parkingSpace.checkOutVehicle(minibusBlue.plate)
 
-    parkingSpace = ParkingSpace(minibusBlue,parking)
-    parkingSpace.checkOutVehicle(minibusBlue.plate)
+    //parking.gainInfo() -> Get gain and quantity of vehicles
 
-    parking.gainInfo()
+    //parking.listVehicles() -> list of plates of vehicles
 
-    parking.listVehicles()
-
-    println("\n ${parking.vehicles}")
+    //println("\n ${parking.vehicles}") -> Show the mutableSet complete
 
 
 }

@@ -22,10 +22,12 @@ class Parking(val vehicles : MutableSet<Vehicle>){
             }
         }
 
+    //Get gain and quantity of vehicles
     fun gainInfo(){
         println("${vehiclesQuantity.first} vehicles have checked out and have earnings of ${vehiclesQuantity.second}")
     }
 
+    //list of plates of vehicles
     fun listVehicles() {
         vehicles.forEach {
             println("${it.plate}")
