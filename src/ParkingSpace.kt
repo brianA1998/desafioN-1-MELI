@@ -1,36 +1,64 @@
 import java.util.*
+import kotlin.math.ceil
+import kotlin.math.roundToInt
 
 class ParkingSpace(var vehicle : Vehicle,var parking: Parking){
 
+    var carsQuantity : Int = 0
+    var gain : Int = 0
+
     private val MINUTES_IN_MILISECONDS = 60000
-    private val parkedTime: Long
-        get() = (Calendar.getInstance().timeInMillis - vehicle.checkInTime.timeInMillis) / MINUTES_IN_MILISECONDS
+    var parkedTime: Long = 151
+        //get() = (Calendar.getInstance().timeInMillis - vehicle.checkInTime.timeInMillis) / MINUTES_IN_MILISECONDS
 
 
     fun checkOutVehicle(plate : String) {
-        parking.vehicles.remove(vehicle)
-        var amount = calculateAmount(parkedTime, vehicle)
-        onSuccess(amount)
+
+        var equals = vehicle.plate.compareTo(plate)
+        if (equals != 0) {
+            onError()
+        } else{
+            parking.vehicles.remove(vehicle)
+            var amount = calculateFee(parkedTime, vehicle.type)
+            carsQuantity += 1
+            gain += amount
+            onSuccess(amount)
+            parking.vehiclesQuantity = Pair(carsQuantity,gain)
+        }
     }
 
     //Shows that the check-out is complete
     fun onSuccess(amount : Int){
-        println("Amount: $amount")
+        println("Your fee is $amount. Come back soon.")
     }
 
     //Calculates the stay time of the vehicle
-    fun calculateAmount(parkedTime : Long, vehicle: Vehicle): Int{
+    fun calculateFee(parkedTime : Long, vehicleType: VehicleType): Int{
         var amount = 0
+        var totalAmount = 0
         when(parkedTime) {
-            in 0..60L ->amount = vehicle.type.rate
-            in 60..120L ->amount = vehicle.type.rate*2
-
+            in 0..60L ->amount = vehicleType.rate
+            in 60..120L ->amount = vehicleType.rate*2
         }
         if (parkedTime > 120){
-            var extraMinutes = (parkedTime - 120) / 15
-            var extraAmount = extraMinutes * 5
+            var extraMinutes = parkedTime - 120
+            var extraMinutesDouble = extraMinutes.toDouble()
+            var blocks = ceil((extraMinutesDouble / 15))
+            var extraAmount = blocks * 5L
+
+            totalAmount = (vehicleType.rate*2) + extraAmount.toInt()
         }
-        return amount
+
+        vehicle.discountCard?.let{
+            totalAmount = (totalAmount - totalAmount*0.15).toInt()} ?:
+        run{totalAmount = totalAmount}
+
+        return totalAmount
+    }
+
+    // It is executed when the vehicle doesn't exists
+    private fun onError() {
+        println("Sorry, the check-out failed")
     }
 
 }

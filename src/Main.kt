@@ -42,8 +42,15 @@ fun main(){
     //val isCar2Inserted = parking.vehicles.add(car2)
     //println(isCar2Inserted)
 
-    val parkingSpace = ParkingSpace(busRed,parking)
+    var parkingSpace = ParkingSpace(busRed,parking)
     parkingSpace.checkOutVehicle(busRed.plate)
+
+    parkingSpace = ParkingSpace(minibusBlue,parking)
+    parkingSpace.checkOutVehicle(minibusBlue.plate)
+
+    parking.gainInfo()
+
+    parking.listVehicles()
 
     println("\n ${parking.vehicles}")
 

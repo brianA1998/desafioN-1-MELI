@@ -1,5 +1,6 @@
 class Parking(val vehicles : MutableSet<Vehicle>){
 
+    lateinit var vehiclesQuantity : Pair<Int,Int>
 
     //Verified capabilities the Parking
     fun addVehicle(vehicles: MutableSet<Vehicle>) {
@@ -20,6 +21,16 @@ class Parking(val vehicles : MutableSet<Vehicle>){
                 println("Sorry, the check-in failed")
             }
         }
+
+    fun gainInfo(){
+        println("${vehiclesQuantity.first} vehicles have checked out and have earnings of ${vehiclesQuantity.second}")
+    }
+
+    fun listVehicles() {
+        vehicles.forEach {
+            println("${it.plate}")
+        }
+    }
 
 
 }
